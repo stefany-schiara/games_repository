@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"      
+      xmlns:h="http://xmlns.jcp.org/jsf/html"    
+      xmlns:p="http://primefaces.org/ui"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="/template/template.xhtml">
+      
+	 <ui:param name="managedBean"               value="#{CadastroMBean}" />
+	 
+	 <ui:define name="tituloPagina">
+			<title>Cadastro de Usuário</title>
+     </ui:define>
+	
+<ui:define name="conteudoPagina">		
+	<h:form id="form1">	
+		<h:panelGrid columns="2">
+		
+			<h:outputLabel value="#{ResourceLabel.lbl_nome}" for="nome"/>
+			<h:inputText id="nome" value="#{managedBean.usuario.nome}" required="true" requiredMessage="Insira o nome"/>
+			
+			<h:outputLabel value="#{ResourceLabel.lbl_userName}" for="userName"/>
+			<h:inputText id="apelido" value="#{managedBean.usuario.userName}" required="true" requiredMessage="Informe seu "/>
+			
+			<h:outputLabel value="#{ResourceLabel.lbl_senha}" for="senha" />
+			<h:inputSecret  id="senha" value="managedBean.usuario.senha"/>
+			
+			<h:outputLabel value="#{ResourceLabel.lbl_confirmaSenha}" for="confirmaSenha" />
+			<h:inputSecret  id="confirmaSenha" value="#{managedBean.usuario.confirmaSenha}"/>
+			
+			<h:outputLabel value="#{ResourceLabel.lbl_email}" for="email" />
+			<h:inputText id="email" value="#{managedBean.usuario.email}"/>
+			
+			<h:commandButton value="#{ResourceLabel.lbl_cadastrar}" action="#{managedBean.cadastrarUsuario}" />
+						
+		</h:panelGrid>
+	</h:form>
+</ui:define>	
+</ui:composition>
