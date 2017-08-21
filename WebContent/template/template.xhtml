@@ -9,20 +9,31 @@
       xmlns:p="http://primefaces.org/ui">
       
 	<h:head>
+	<h:outputStylesheet library="style" name="css/style.css" />
+	<link rel="icon" type="image/x-icon" href="http://localhost:8080/jsf-shop-management/images/joystick.ico" />
 		<div id="tituloPagina">
-			<ui:insert name="tituloPagina" />
+			<ui:insert name="tituloPagina" />			
 		</div>	
 	</h:head>
 	
 	<h:body style="background-image: url('http://localhost:8080/jsf-shop-management/images/cloud.jpg'); overflow:hidden">
-		<div id="pagina">		
+		<div id="pagina">
+			<ui:include src="cabecalho.xhtml" />		
 			<div id="menu">			
-				
 				<ui:include src="menu.xhtml" />
+			</div>
+			<div id="titulo">
+				<div id="viewNavigationTrail">
+					<ui:insert name="viewNavigationTrail" />
+				</div>
+				<div id="tituloPagina">
+					<ui:insert name="tituloPagina" />
+				</div>
 			</div>
 			<div id="conteudo">
 				<ui:insert name="conteudoPagina" />
 			</div>
+			<ui:include src="rodape.xhtml" />
 		</div>	
 	</h:body>		
 	

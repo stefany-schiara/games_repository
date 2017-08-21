@@ -8,32 +8,41 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       template="/template/template.xhtml">
       
-	 <ui:param name="managedBean"               value="#{CadastroMBean}" />
+
 	 
 	 <ui:define name="tituloPagina">
 			<title>Cadastro de Usuário</title>
+			
+			
      </ui:define>
 	
 <ui:define name="conteudoPagina">		
 	<h:form id="form1">	
+	
+		<p:growl id="growl" showDetail="true" sticky="true" />		    
+ 	   	
+	
 		<h:panelGrid columns="2">
 		
 			<h:outputLabel value="#{ResourceLabel.lbl_nome}" for="nome"/>
-			<h:inputText id="nome" value="#{managedBean.usuario.nome}" required="true" requiredMessage="Insira o nome"/>
+			<h:inputText id="nome" value="#{cadastroMBean.usuario.nome}" required="true" requiredMessage="Nome obrigatório" maxlength="25"/>
 			
 			<h:outputLabel value="#{ResourceLabel.lbl_userName}" for="userName"/>
-			<h:inputText id="apelido" value="#{managedBean.usuario.userName}" required="true" requiredMessage="Informe seu "/>
+			<h:inputText id="userName" value="#{cadastroMBean.usuario.userName}" required="true" requiredMessage="Nome de usuário obrigatório" 
+				maxlength="15"/>
 			
 			<h:outputLabel value="#{ResourceLabel.lbl_senha}" for="senha" />
-			<h:inputSecret  id="senha" value="managedBean.usuario.senha"/>
+			<h:inputSecret  id="senha" value="#{cadastroMBean.usuario.senha}" requiredMessage="Informe sua senha" maxlength="15" required="true"/>
 			
 			<h:outputLabel value="#{ResourceLabel.lbl_confirmaSenha}" for="confirmaSenha" />
-			<h:inputSecret  id="confirmaSenha" value="#{managedBean.usuario.confirmaSenha}"/>
+			<h:inputSecret  id="confirmaSenha" value="#{cadastroMBean.confirmaSenha}" requiredMessage="Redigite a senha" maxlength="15" 
+				required="true" />
 			
 			<h:outputLabel value="#{ResourceLabel.lbl_email}" for="email" />
-			<h:inputText id="email" value="#{managedBean.usuario.email}"/>
+			<h:inputText id="email" value="#{cadastroMBean.usuario.email}" requiredMessage="Informe seu e-mail" required="true"/>
 			
-			<h:commandButton value="#{ResourceLabel.lbl_cadastrar}" action="#{managedBean.cadastrarUsuario}" />
+			<h:commandButton value="#{ResourceLabel.lbl_cadastrar}" actionListener="#{cadastroMBean.cadastrarUsuario}" update="growl"/>		
+			
 						
 		</h:panelGrid>
 	</h:form>

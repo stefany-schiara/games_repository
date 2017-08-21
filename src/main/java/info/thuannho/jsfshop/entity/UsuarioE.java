@@ -1,11 +1,15 @@
 package info.thuannho.jsfshop.entity;
 
+import java.sql.Date;
+import java.util.Calendar;
+
 public class UsuarioE {
 	
-	private String nome = "";
-	private String userName = "";
-	private String senha = "";
-	private String email = "";
+	private String nome;
+	private String userName;
+	private String senha;
+	private String email;
+	private Calendar dataAtual = Calendar.getInstance();
 	
 
 	public UsuarioE() {
@@ -19,7 +23,7 @@ public class UsuarioE {
 		this.nome = nome;
 	}
 	
-	public String getuserName() {
+	public String getUserName() {
 		return userName;
 	}
 	
@@ -42,5 +46,8 @@ public class UsuarioE {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
+	
 
 }

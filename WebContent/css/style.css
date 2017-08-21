@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*Divs layout*/
+div#pagina{
+	width: 980px !important;               
+	max-width:980px !important;
+	position: relative !important;
+	margin: auto !important;
+	height: auto !important;
+}	
+	
+body{
+	padding: 0px !important;
+	margin: 0px !important;
+	font-family:Arial, Helvetica, sans-serif !important;
+	font-size:12px !important;
+}
+	
