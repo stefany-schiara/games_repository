@@ -18,6 +18,7 @@ public class CadastroMBean {
 	private UsuarioE usuario;
 	private String confirmaSenha;
 	private String mensagem;
+	private boolean validar;
 	
 		
 	FacesContext context = FacesContext.getCurrentInstance();
@@ -43,10 +44,10 @@ public class CadastroMBean {
  
     public void setmensagem(String mensagem) {
         this.mensagem = mensagem;
-    }
+    } 
     	
 	public void cadastrarUsuario() {
-			try {
+		try {
 				if(validarCamposCadastrar()) {
 					service.cadastrar(usuario);
 				}
@@ -63,7 +64,7 @@ public class CadastroMBean {
 				
 				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "As senhas estão diferentes"));
 			}
-				return false;				
+				return; 				
 	}
 
 	public UsuarioE getUsuario() {

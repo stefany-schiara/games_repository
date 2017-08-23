@@ -58,11 +58,6 @@ div#tituloPagina{
 	text-align: left;
 }
 
-/*Button*/
-.ui-button{
-	border:1px solid #ccc !important;
-}
-
 /*Componentes*/
 .panelGrid td, .panelGrid tr{
 	border: none !important;
