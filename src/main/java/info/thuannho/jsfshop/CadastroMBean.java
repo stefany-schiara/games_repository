@@ -13,7 +13,9 @@ import info.thuannho.jsfshop.service.CadastroService;
 
 @ManagedBean
 @RequestScoped
-public class CadastroMBean {
+public class CadastroMBean extends MBeanBase{
+	
+	private static final long serialVersionUID = 7851699081121470530L;
 	
 	private UsuarioE usuario;
 	private String confirmaSenha;
@@ -47,25 +49,23 @@ public class CadastroMBean {
     } 
     	
 	public void cadastrarUsuario() {
-		try {
-				if(validarCamposCadastrar()) {
-					service.cadastrar(usuario);
-				}
-			} catch (Exception e) {
-				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Não foi possível cadastrar o usuário"));
-			}
-	}
-	
-	
-	
-	public boolean validarCamposCadastrar() {
 		
-			if (!usuario.getSenha().equals(confirmaSenha)) {
-				
-				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "As senhas estão diferentes"));
-			}
-				return; 				
+		if(usuario.getNome() == null || usuario.getNome().equals(""))
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Campo nome não pode ser vazio"));
+		
+		if(usuario.getNome().length() > 3)
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "O campo nome deve possuir o mínimo de 3 caracteres"));
+		
+		if(usuario.getUserName().isEmpty() || usuario.getUserName().equals(""))
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Campo usuário não pode ser vazio"));
+		
+		if(usuario.getNome().length() > 3)
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Minimo de 3 caracteres para o campo nome"));
+		
+			
+		
 	}
+	
 
 	public UsuarioE getUsuario() {
 		return usuario;
