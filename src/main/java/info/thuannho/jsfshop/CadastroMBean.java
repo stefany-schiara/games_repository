@@ -1,5 +1,8 @@
 package info.thuannho.jsfshop;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -7,25 +10,17 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import info.thuannho.jsfshop.entity.UsuarioE;
-import info.thuannho.jsfshop.service.CadastroService;
-
-
 
 @ManagedBean
 @RequestScoped
-public class CadastroMBean extends MBeanBase{
-	
-	private static final long serialVersionUID = 7851699081121470530L;
+public class CadastroMBean {	
 	
 	private UsuarioE usuario;
 	private String confirmaSenha;
 	private String mensagem;
-	private boolean validar;
-	
-		
+	int erro;
+			
 	FacesContext context = FacesContext.getCurrentInstance();
-	
-	CadastroService service;
 	
 	@PostConstruct
 	public void init() {
@@ -48,22 +43,81 @@ public class CadastroMBean extends MBeanBase{
         this.mensagem = mensagem;
     } 
     	
-	public void cadastrarUsuario() {
+    
+	public void cadastrarUsuario() {	
 		
-		if(usuario.getNome() == null || usuario.getNome().equals(""))
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Campo nome n�o pode ser vazio"));
+		validarCampos();
+        
+		if(erro != 0) {
+        	context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Erro", "Bora salvar"));
+        } 
+        else {
+        	context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Não foi possível cadastrar usuário"));
+        }
+        
+    }
+	
+	public void validarCampos() {		
 		
-		if(usuario.getNome().length() > 3)
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "O campo nome deve possuir o m�nimo de 3 caracteres"));
+		if(usuario.getNome() == null || usuario.getNome().isEmpty()) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Campo nome não pode ser vazio"));
+			erro += 0;
+		}
 		
-		if(usuario.getUserName().isEmpty() || usuario.getUserName().equals(""))
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Campo usu�rio n�o pode ser vazio"));
+		if(usuario.getNome().length() < 3) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Nome deve possuir mais de 3 caracteres"));
+			erro += 0;
+		}
 		
-		if(usuario.getNome().length() > 3)
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Minimo de 3 caracteres para o campo nome"));
+		if(usuario.getUserName()  == null || usuario.getUserName().isEmpty()) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Campo usuário não pode ser vazio"));
+			erro += 0;
+		}
 		
-			
+		if(usuario.getUserName().length() < 3) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Usuário deve possuir mais de 3 caracteres"));
+			erro += 0;
+		}
 		
+		if(usuario.getSenha() == null || usuario.getSenha().isEmpty()) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Informe uma senha"));
+			erro += 0;	
+		}
+		
+		if(usuario.getSenha().length() < 5) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Senha não pode ser menor que 5 caracteres"));
+			erro += 0;
+		}
+		
+		if(usuario.getSenha() != confirmaSenha) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "As senhas não conferem"));
+			erro += 0;
+		}
+		
+		if(usuario.getEmail() == null || usuario.getEmail().isEmpty()) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Campo email não pode ser vazio"));
+			erro += 0;
+		}
+		
+		if(!validarEmail()) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Informe um e-mail válido"));
+			erro += 0;
+		}
+		
+		else {	
+			erro += 1;
+		}
+		
+	}
+	
+	
+	public boolean validarEmail() {
+		
+		String emailPattern = "\\b(^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@([A-Za-z0-9-])+(\\.[A-Za-z0-9-]+)*((\\.[A-Za-z0-9]{2,})|(\\.[A-Za-z0-9]{2,}\\.[A-Za-z0-9]{2,}))$)\\b";
+        Pattern pattern = Pattern.compile(emailPattern, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(usuario.getEmail());
+		
+		return false;
 	}
 	
 
@@ -73,8 +127,6 @@ public class CadastroMBean extends MBeanBase{
 
 	public void setUsuario(UsuarioE usuario) {
 		this.usuario = usuario;
-	}
-	
-	
+	}	
 
 }

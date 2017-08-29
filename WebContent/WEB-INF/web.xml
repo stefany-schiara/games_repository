@@ -22,6 +22,12 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+  <locale-encoding-mapping-list>
+		<locale-encoding-mapping>
+			<locale>pt_BR</locale>
+			<encoding>ISO-8859-1</encoding>
+		</locale-encoding-mapping>
+	</locale-encoding-mapping-list>
   <context-param>
     <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
