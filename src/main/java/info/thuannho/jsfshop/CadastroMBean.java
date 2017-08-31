@@ -89,7 +89,7 @@ public class CadastroMBean {
 			erro += 0;
 		}
 		
-		if(usuario.getSenha() != confirmaSenha) {
+		if(usuario.getSenha().equals(confirmaSenha)) {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "As senhas não conferem"));
 			erro += 0;
 		}
