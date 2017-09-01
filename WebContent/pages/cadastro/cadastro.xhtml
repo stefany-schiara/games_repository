@@ -30,7 +30,9 @@
 				<h:inputSecret  id="confirmaSenha" value="#{cadastroMBean.confirmaSenha}"  maxlength="15" />
 				
 				<h:outputLabel value="#{ResourceLabel.lbl_email}" for="email" />
-				<h:inputText id="email" value="#{cadastroMBean.usuario.email}" />
+				<h:inputText id="email" value="#{cadastroMBean.usuario.email}" validatorMessage="Informe um e-mail válido"> 
+					<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</h:inputText>
 				
 				<p:commandButton value="#{ResourceLabel.lbl_cadastrar}" actionListener="#{cadastroMBean.cadastrarUsuario}" update="growl" />		
 			

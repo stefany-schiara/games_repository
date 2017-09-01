@@ -49,7 +49,7 @@ public class CadastroMBean {
 		validarCampos();
         
 		if(erro != 0) {
-        	context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Erro", "Bora salvar"));
+        	context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso", "Bora salvar"));
         } 
         else {
         	context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Não foi possível cadastrar usuário"));
@@ -70,37 +70,32 @@ public class CadastroMBean {
 		}
 		
 		if(usuario.getUserName()  == null || usuario.getUserName().isEmpty()) {
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Campo usuário não pode ser vazio"));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Campo usuário não pode ser vazio"));
 			erro += 0;
 		}
 		
 		if(usuario.getUserName().length() < 3) {
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Usuário deve possuir mais de 3 caracteres"));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário deve possuir mais de 3 caracteres"));
 			erro += 0;
 		}
 		
 		if(usuario.getSenha() == null || usuario.getSenha().isEmpty()) {
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Informe uma senha"));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Informe uma senha"));
 			erro += 0;	
 		}
 		
 		if(usuario.getSenha().length() < 5) {
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Senha não pode ser menor que 5 caracteres"));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Senha não pode ser menor que 5 caracteres"));
 			erro += 0;
 		}
 		
 		if(usuario.getSenha().equals(confirmaSenha)) {
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "As senhas não conferem"));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "As senhas não conferem"));
 			erro += 0;
 		}
 		
 		if(usuario.getEmail() == null || usuario.getEmail().isEmpty()) {
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Campo email não pode ser vazio"));
-			erro += 0;
-		}
-		
-		if(!validarEmail()) {
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "null", "Informe um e-mail válido"));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Campo email não pode ser vazio"));
 			erro += 0;
 		}
 		
@@ -108,17 +103,7 @@ public class CadastroMBean {
 			erro += 1;
 		}
 		
-	}
-	
-	
-	public boolean validarEmail() {
-		
-		String emailPattern = "\\b(^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@([A-Za-z0-9-])+(\\.[A-Za-z0-9-]+)*((\\.[A-Za-z0-9]{2,})|(\\.[A-Za-z0-9]{2,}\\.[A-Za-z0-9]{2,}))$)\\b";
-        Pattern pattern = Pattern.compile(emailPattern, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(usuario.getEmail());
-		
-		return false;
-	}
+	}	
 	
 
 	public UsuarioE getUsuario() {
