@@ -1,8 +1,5 @@
 package info.thuannho.jsfshop;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -10,10 +7,13 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import info.thuannho.jsfshop.entity.UsuarioE;
+import info.thuannho.jsfshop.service.CadastroService;
 
 @ManagedBean
 @RequestScoped
 public class CadastroMBean {	
+	
+	CadastroService cadastroService;
 	
 	private UsuarioE usuario;
 	private String confirmaSenha;
@@ -44,12 +44,12 @@ public class CadastroMBean {
     } 
     	
     
-	public void cadastrarUsuario() {	
+	public void cadastrarUsuario() throws Exception {	
 		
 		validarCampos();
         
 		if(erro != 0) {
-        	context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso", "Bora salvar"));
+        	cadastroService.cadastrar(usuario);
         } 
         else {
         	context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Não foi possível cadastrar usuário"));
@@ -89,7 +89,7 @@ public class CadastroMBean {
 			erro += 0;
 		}
 		
-		if(usuario.getSenha().equals(confirmaSenha)) {
+		if(!usuario.getSenha().equals(confirmaSenha)) {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "As senhas não conferem"));
 			erro += 0;
 		}

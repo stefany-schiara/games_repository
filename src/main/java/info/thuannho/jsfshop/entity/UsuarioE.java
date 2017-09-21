@@ -1,7 +1,5 @@
 package info.thuannho.jsfshop.entity;
 
-import java.util.Calendar;
-
 public class UsuarioE {
 	
 	private String nome;
