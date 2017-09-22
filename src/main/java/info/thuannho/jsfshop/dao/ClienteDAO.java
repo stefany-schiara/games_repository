@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import info.thuannho.jsfshop.conection.Connect;
 import info.thuannho.jsfshop.entity.UsuarioE;
 
+
 public class ClienteDAO {
 	
 	public void cadastrarCliente(UsuarioE usuario) throws Exception{
