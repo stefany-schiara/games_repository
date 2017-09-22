@@ -14,19 +14,18 @@ public class ClienteDAO {
 		StringBuilder sql = new StringBuilder();
 		
 		sql.append("INSERT INTO CLIENTE ");
-		sql.append("VALUES(?, ?, ?, ?, ?)");
+		sql.append("VALUES(?, ?, ?, ?)");
 		
 		//Abre conexao
 		Connection conn = Connect.abrirConexao();
 		
 		PreparedStatement ps = conn.prepareStatement(sql.toString());
-		ps.setString(1, "seq_cliente.nextval");
-		ps.setString(2, usuario.getNome());
-		ps.setString(3, usuario.getEmail());
-		ps.setString(4, usuario.getSenha());
-		ps.setString(5, usuario.getUserName());
+		ps.setString(1, usuario.getNome());
+		ps.setString(2, usuario.getEmail());
+		ps.setString(3, usuario.getSenha());
+		ps.setString(4, usuario.getUserName());
 		
-		ps.executeQuery();
+		ps.executeUpdate();
 		
 		ps.close();
 		conn.close();

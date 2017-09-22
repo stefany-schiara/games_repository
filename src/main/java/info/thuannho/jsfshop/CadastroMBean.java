@@ -14,7 +14,7 @@ import info.thuannho.jsfshop.service.CadastroService;
 public class CadastroMBean {	
 
 	
-	CadastroService cadastroService;
+	CadastroService cadastroService = new CadastroService();
 	
 	private UsuarioE usuario;
 	private String confirmaSenha;
@@ -49,20 +49,19 @@ public class CadastroMBean {
 
 		validarCampos();
 		
-		cadastroService = new CadastroService();
-
 		try {
 
 			if (erro != 0) {
 				cadastroService.cadastrar(usuario);
-			} else {
-				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Não foi possível cadastrar usuário"));
-			}
+			} 
+			
 		} catch (Exception e) {
+			
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Não foi possível cadastrar usuário"));
 			
 		}
-
+		
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso", "Usuário cadastrado"));
 	}
 	
 	public void validarCampos() {		

@@ -6,8 +6,8 @@ import java.sql.DriverManager;
 public class Connect {
 	
 	public static final String usuario = "postgres";
-	public static final String senha = "postgres";
-	public static final String url = "jdbc:postgresql://localhost:5432/games";
+	public static final String senha = "absoluta";
+	public static final String url = "jdbc:postgresql://localhost:5432/postgres";
 	public static final String driver = "org.postgresql.Driver";
 	
 	
