@@ -15,28 +15,28 @@
     </ui:define>
     
     <ui:define name="conteudoPagina">
-    	
+    	<link rel="stylesheet" type="text/css" href="../../css/style.css"/>
     	<h:form>
     		<p:growl id="growl" showDetail="true" sticky="true" />
     		
-    		<h:panelGrid  columns="2" id="painelCadastro">
+    		<h:panelGrid  columns="2" id="painelCadastro" >
     		   		
-    			<h:outputLabel value="#{ResourceLabel.lbl_nome}" for="nome"/>
-				<h:inputText id="nome" value="#{cadastroMBean.usuario.nome}" maxlength="25"/>
+    			<p:outputLabel value="#{ResourceLabel.lbl_nome}" for="nome"/>
+				<p:inputText id="nome" value="#{cadastroMBean.usuario.nome}" maxlength="25"/>
 			
-				<h:outputLabel value="#{ResourceLabel.lbl_userName}" for="userName"/>
-				<h:inputText id="userName" value="#{cadastroMBean.usuario.userName}" maxlength="15"/>
+				<p:outputLabel value="#{ResourceLabel.lbl_userName}" for="userName"/>
+				<p:inputText id="userName" value="#{cadastroMBean.usuario.userName}" maxlength="15"/>
 				
-				<h:outputLabel value="#{ResourceLabel.lbl_senha}" for="senha" />
-				<h:inputSecret  id="senha" value="#{cadastroMBean.usuario.senha}" maxlength="15" />
+				<p:outputLabel value="#{ResourceLabel.lbl_senha}" for="senha" />
+				<p:password  id="senha" value="#{cadastroMBean.usuario.senha}" maxlength="15" />
 				
-				<h:outputLabel value="#{ResourceLabel.lbl_confirmaSenha}" for="confirmaSenha" />
-				<h:inputSecret  id="confirmaSenha" value="#{cadastroMBean.confirmaSenha}"  maxlength="15" />
+				<p:outputLabel value="#{ResourceLabel.lbl_confirmaSenha}" for="confirmaSenha" />
+				<p:password  id="confirmaSenha" value="#{cadastroMBean.confirmaSenha}"  maxlength="15" />
 				
-				<h:outputLabel value="#{ResourceLabel.lbl_email}" for="email" /> 
-				<h:inputText id="email" value="#{cadastroMBean.usuario.email}" validatorMessage="Informe um email valido">
+				<p:outputLabel value="#{ResourceLabel.lbl_email}" for="email" /> 
+				<p:inputText id="email" value="#{cadastroMBean.usuario.email}" validatorMessage="Informe um email valido">
 					<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-				</h:inputText> 
+				</p:inputText> 
 				
 				<p:commandButton value="#{ResourceLabel.lbl_cadastrar}" actionListener="#{cadastroMBean.cadastrarUsuario}" update="growl" />
     		

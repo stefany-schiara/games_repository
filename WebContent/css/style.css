@@ -1,11 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
-
 body{
 	padding: 0px !important;
 	margin: 0px !important;
-	font-family:Arial, Helvetica, sans-serif !important;
+	/* font-family:Trebuchet MS, Helvetica, sans-serif !important; */
+	font-family: Trebuchet MS, sans-serif !important;
 	font-size:12px !important;
 	background-image: url('../images/cloud.jpg') !important;		 	
 }	
@@ -13,7 +13,6 @@ body{
 /*Divs layout*/
 div#pagina{
 	width: 980px !important;               
-	max-width:980px !important;
 	position: relative !important;
 	margin: auto !important;
 	height: auto !important;	
