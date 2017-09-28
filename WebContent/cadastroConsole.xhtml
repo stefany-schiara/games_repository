@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>   
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition  
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html" 
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui" 
+		template="/template/template.xhtml" >
+      
+	<ui:define name="tituloPagina">
+		<title>	Cadastro de Console </title>
+	</ui:define>
+	
+	<ui:define name="conteudoPagina">
+		
+		<h:form>
+    		
+    		<p:growl id="growl" showDetail="true" sticky="true" />    		
+    		
+    		<h:panelGrid  columns="2" id="painelCadastro" >
+    		
+    			<p:outputLabel value="#{ResourceLabel.lbl_console}" for="nome"/>
+				<p:inputText id="nome" value="#{ConsoleMBean.console.nome}" maxlength="25"/>
+				
+				<p:outputLabel value="#{ResourceLabel.lbl_versao}" for="versao"/>
+				<p:inputText id="versao" value="#{ConsoleMBean.console.versao}" maxlength="25"/>
+				
+				<p:commandButton value="#{ResourceLabel.lbl_cadastrar}" update="growl" />
+    		
+    		</h:panelGrid>
+    		
+    	</h:form>
+    	
+	</ui:define>
+
+</ui:composition>
