@@ -1,5 +1,6 @@
 package info.thuannho.jsfshop;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -13,7 +14,11 @@ public class ConsoleMBean {
 	ConsoleService consoleService = new ConsoleService();
 
 	private ConsoleE console;
-	 
+	
+	@PostConstruct
+	public void init() {
+		console = new ConsoleE();
+	}
 	
 	public ConsoleE getConsole() {
 		return console;
@@ -21,7 +26,7 @@ public class ConsoleMBean {
 	
 	public void setConsole(ConsoleE console) {
 		this.console = console;
-	}
+	}	
 	
 	public void cadastrarConsole() throws Exception{
 		
