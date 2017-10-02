@@ -6,7 +6,6 @@ public class ConsoleE {
 	private String versao;
 	
 	public ConsoleE() {
-		
 	}
 	
 	public String getNome() {
@@ -21,10 +20,8 @@ public class ConsoleE {
 		return versao;
 	}
 	
-	public void serVersao(String versao) {
+	public void setVersao(String versao) {
 		this.versao = versao;
 	}
-	
-	
 
 }

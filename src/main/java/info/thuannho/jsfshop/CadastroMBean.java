@@ -12,7 +12,6 @@ import info.thuannho.jsfshop.service.CadastroService;
 @ManagedBean
 @RequestScoped
 public class CadastroMBean {	
-
 	
 	CadastroService cadastroService = new CadastroService();
 	

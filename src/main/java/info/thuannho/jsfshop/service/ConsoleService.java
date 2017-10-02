@@ -8,9 +8,7 @@ public class ConsoleService {
 	ConsoleDAO consoleDao = new ConsoleDAO();
 	
 	public void cadastrarConsole(ConsoleE console) throws Exception{
-		
 		consoleDao.cadastrarConsole(console);
-		
 	}
 
 }

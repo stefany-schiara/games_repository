@@ -2,7 +2,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <ui:composition  
 		xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:f="http://java.sun.com/jsf/core"
@@ -12,28 +11,27 @@
 		template="/template/template.xhtml" >
       
 	<ui:define name="tituloPagina">
-		<title>	Cadastro de Console </title>
+		<title>	Cadastro de Console 3</title>
 	</ui:define>
 	
 	<ui:define name="conteudoPagina">
 		
-		<h:form>
-    		
-    		<p:growl id="growl" showDetail="true" sticky="true" />    		
     		
     		<h:panelGrid  columns="2" id="painelCadastro" >
-    		
-    			<p:outputLabel value="#{ResourceLabel.lbl_console}" for="nome"/>
-				<p:inputText id="nome" value="#{consoleMBean.console.nome}" maxlength="25"/>
-				
-				<p:outputLabel value="#{ResourceLabel.lbl_versao}" for="versao"/>
-				<p:inputText id="versao" value="#{consoleMBean.console.versao}" maxlength="25"/>
-				
-				<p:commandButton value="#{ResourceLabel.lbl_cadastrar}" actionListener="#{consoleMBean.cadastrarConsole}" update="growl" />
-				    		
-    		</h:panelGrid>
-    		
-    	</h:form>
+    		<p:growl id="growl" showDetail="true" sticky="true" />    		
+	    		<h:form>
+	    			<p:outputLabel value="#{ResourceLabel.lbl_console}" for="nome"/>
+					<p:inputText id="nome" value="#{consoleMBean.console.nome}" maxlength="25"/>
+					
+					<p:outputLabel value="#{ResourceLabel.lbl_versao}" for="versao"/>
+					<p:inputText id="versao" value="#{consoleMBean.console.versao}" maxlength="25"/>
+					
+					<p:commandButton value="#{ResourceLabel.lbl_cadastrar}" actionListener="#{consoleMBean.cadastrarConsole}" update="growl" />
+					
+					<
+					
+				</h:form>
+    		</h:panelGrid>																				    	
     	
 	</ui:define>
 
