@@ -1,11 +1,8 @@
 package info.thuannho.jsfshop;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import info.thuannho.jsfshop.entity.ConsoleE;
@@ -25,7 +22,6 @@ public class ConsoleMBean {
 	}	
 		
 	public void cadastrarConsole(ActionEvent actionEvent) throws Exception{
-		System.out.println(" ################# Cadastro Console cadastrarConsole################# ");
 		consoleService.cadastrarConsole(console);
 	}	
 	
