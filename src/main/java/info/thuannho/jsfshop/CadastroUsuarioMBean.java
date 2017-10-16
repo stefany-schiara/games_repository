@@ -7,13 +7,13 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import info.thuannho.jsfshop.entity.UsuarioE;
-import info.thuannho.jsfshop.service.CadastroService;
+import info.thuannho.jsfshop.service.UsuarioService;
 
 @ManagedBean
 @RequestScoped
-public class CadastroMBean {	
+public class CadastroUsuarioMBean {	
 	
-	CadastroService cadastroService = new CadastroService();
+	UsuarioService cadastroService = new UsuarioService();
 	
 	private UsuarioE usuario;
 	private String confirmaSenha;

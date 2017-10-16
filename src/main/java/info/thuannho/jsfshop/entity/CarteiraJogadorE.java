@@ -2,19 +2,11 @@ package info.thuannho.jsfshop.entity;
 
 public class CarteiraJogadorE {
 
-	private String nomeJogador;
 	private String nomeJogo;
+	private String nomeConsole;
 	private String status;
 
 	public CarteiraJogadorE() {
-	}
-
-	public String getNomeJogador() {
-		return nomeJogador;
-	}
-
-	public void setNomeJogador(String nomeJogador) {
-		this.nomeJogador = nomeJogador;
 	}
 
 	public String getNomeJogo() {
@@ -23,6 +15,14 @@ public class CarteiraJogadorE {
 
 	public void setNomeJogo(String nomeJogo) {
 		this.nomeJogo = nomeJogo;
+	}
+	
+	public String getNomeConsole() {
+		return nomeConsole;
+	}
+	
+	public void setNomeConsole(String nomeConsole) {
+		this.nomeConsole = nomeConsole;
 	}
 
 	public String getStatus() {
