@@ -16,17 +16,17 @@
      	<h:form>
 			<p:growl id="growl" showDetail="true" sticky="true" />
 			
-			<p:dataTable var="game" value="#{dtBasicView.cars}">
+			<p:dataTable var="game" value="#{carteiraJogadorMBean.buscarJogosCarteira}">
 			    <p:column headerText="Jogo">
-			        <h:outputText value="#{car.id}" />
+			        <h:outputText value="#{carteira.nomeJogo}" />
 			    </p:column>
 			 
 			    <p:column headerText="Console">
-			        <h:outputText value="#{car.year}" />
+			        <h:outputText value="#{carteira.nomeConsole}" />
 			    </p:column>
 			 
 			    <p:column headerText="Status">
-			        <h:outputText value="#{car.brand}" />
+			        <h:outputText value="#{carteira.status}" />
 			    </p:column>		 
 			    
 			</p:dataTable>		  
