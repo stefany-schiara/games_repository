@@ -11,6 +11,10 @@ import javax.faces.bean.SessionScoped;
 public class HomeBean implements Serializable {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String titlePage = "cadastro.xhtml";
 
     @PostConstruct

@@ -2,14 +2,9 @@ package info.thuannho.jsfshop.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 import info.thuannho.jsfshop.conection.Connect;
 import info.thuannho.jsfshop.entity.UsuarioE;
-import info.thuannho.jsfshop.entity.CarteiraJogadorE;
-
 
 public class UsuarioDAO {
 	

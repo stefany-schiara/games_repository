@@ -16,17 +16,17 @@
      	<h:form>
 			<p:growl id="growl" showDetail="true" sticky="true" />
 			
-			<p:dataTable var="game" value="#{carteiraJogadorMBean.buscarJogosCarteira}">
+			<p:dataTable var="jogos" value="#{carteiraJogadorMBean.jogos}">
 			    <p:column headerText="Jogo">
-			        <h:outputText value="#{carteira.nomeJogo}" />
+			        <h:outputText value="#{carteiraJogadorMBean.carteira.nomeJogo}" />
 			    </p:column>
 			 
 			    <p:column headerText="Console">
-			        <h:outputText value="#{carteira.nomeConsole}" />
+			        <h:outputText value="#{carteiraJogadorMBean.carteira.nomeConsole}" />
 			    </p:column>
 			 
 			    <p:column headerText="Status">
-			        <h:outputText value="#{carteira.status}" />
+			        <h:outputText value="#{carteiraJogadorMBean.carteira.status}" />
 			    </p:column>		 
 			    
 			</p:dataTable>		  
